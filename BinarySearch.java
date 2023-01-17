@@ -44,7 +44,7 @@ public class BinarySearch {
 
   public static void main(String[] args) {
     Integer[] a = { 1, 3, 5, 7, 9 };
-    System.out.println(contains(a, 1));
+    assert (contains(a, 1));
     assert !contains(a, 4);
     assert contains(a, 7);
 
