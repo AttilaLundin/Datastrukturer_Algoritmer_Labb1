@@ -9,23 +9,24 @@ public class BinarySearch {
 
   // Check if the array `a` contains the given search key.
   public static <T> boolean contains(T[] a, T key, Comparator<T> comparator) {
-    return binarySearch(a, key, comparator, a.length-1, 0) != -1;
+    return binarySearchContains(a, key, comparator, a.length-1, 0) != -1;
   }
 
-  private static <T> int binarySearch(T[] a, T key, Comparator<T> comparator, int high, int low){
+  private static <T> int binarySearchContains(T[] a, T key, Comparator<T> comparator, int high, int low){
     if(low <= high){
       int middlePosition = (high + low)/2;
-      int isEqual = comparator.compare(a[middlePosition], key);
-      if(isEqual == 0) return middlePosition;
-      else if (isEqual < 0) binarySearch(a, key, comparator, high, middlePosition + 1);
-      else binarySearch(a, key, comparator, middlePosition - 1, low);
+      if(comparator.compare(a[middlePosition], key) == 0) return middlePosition;
+      else if (comparator.compare(a[middlePosition], key) < 0) return binarySearchContains(a, key, comparator, high, middlePosition + 1);
+      else return binarySearchContains(a, key, comparator, middlePosition - 1, low);
     }
     return -1;
   }
 
   // Return the *first position* of `key` in `a`, or -1 if `key` does not occur.
   public static <T> int firstIndexOf(T[] a, T key, Comparator<T> comparator) {
-    return binarySearch(a, key, comparator, a.length-1, 0);
+    int indexOfKey = binarySearchContains(a, key, comparator, a.length-1, 0);
+    while(indexOfKey >= 1 && a[indexOfKey - 1] == key) indexOfKey--;
+    return indexOfKey;
   }
 
   // Versions of the above functions that use the natural ordering of the type T.
