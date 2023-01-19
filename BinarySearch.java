@@ -25,7 +25,8 @@ public class BinarySearch {
   // Return the *first position* of `key` in `a`, or -1 if `key` does not occur.
   public static <T> int firstIndexOf(T[] a, T key, Comparator<T> comparator) {
     int indexOfKey = binarySearchContains(a, key, comparator, a.length-1, 0);
-    while(indexOfKey >= 1 && a[indexOfKey - 1] == key) indexOfKey--;
+    if(indexOfKey == -1) return -1;
+    while(indexOfKey > 0 && a[indexOfKey - 1] == key) indexOfKey = binarySearchContains(a, key, comparator, indexOfKey, 0);
     return indexOfKey;
   }
 

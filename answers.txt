@@ -8,48 +8,68 @@ b) 100 elements?
 c) 1,000 elements?
 d) 1,000,000 elements?
 
-Hint: You can count the comparisons using a debugger to step through your program line-by-line.
+**Answer**
+We will calculate this based on worst case.
+According to Wikipedia the most amount of iterations is equal to:
+[log2(n) + 1]
 
-TODO
+a) log2(10) + 1 = 4
+b) log2(100) + 1 = 7
+c) log2(1,000) + 1 = 10
+d) log2(1,000,000) + 1 = 20
+
+
+
+Hint: You can count the comparisons using a debugger to step through your program line-by-line.
 
 **Question**
 How many comparisons would firstIndexOf need for 1,000,000,000,000 elements?
 (This is way too big for your computer's memory!)
 Justify your answer.
 
-TODO
+**Answer**
+log2(1,000,000,000,000) + 1 = 40
+
 
 Appendix: general information
 =============================
 
 **Question**
 How many hours did you spend on the assignment?
-
-TODO
+**Answer**
+Not a clue, didn't really make a fuss and took my time.
 
 **Questions**
 Which of the three spoilers did you use?
-
-TODO
+**Answer**
+Looked at all of them even before I started writing code
 
 **Question**
 Do you know of any bugs or limitations?
+**Answer**
+There's no bugs to my knowledge, it's probably an anthill.
+One limitation is the size of the array. I've used int to keep track of the different indexes.
+If the array is big enough the code will go bust.
 
-TODO
+
 
 **Question**
 Did you collaborate with any other students on this lab?
 If so, write with whom and in what way you collaborated.
 Also list any resources (including the web) you have used in creating your design.
-
-TODO
+**Answer**
+https://chalmersgu-data-structure-courses.github.io/OpenDSA/Published/ChalmersGU-DSABook/html/ Data Structures and Algorithms
+https://www.youtube.com/watch?v=5qPaV3dLZKc To refresh recursion
+https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure_for_finding_the_leftmost_element Binary search wiki page
 
 **Question**
 Did you encounter any serious problems?
-
-TODO
+**Answer**
+Took a while to understand firstIndexOf, initially I wrote a linear search. Then I thought to my self
+"this can't be correct, surely". Took a while to figure out how to keep the binary search going,
+mostly because the concept didn't really sink in at first.
 
 **Question**
 What is your feedback on this assignment?
-
-TODO
+**Answer**
+It was a good one! Got me back on the Java train really quickly.
