@@ -12,6 +12,8 @@ public class BinarySearch {
     return binarySearchContains(a, key, comparator, a.length-1, 0) != -1;
   }
 
+
+  //Function that recursively does a binary search on sorted array, returns -1 if element not present or the position of it.
   private static <T> int binarySearchContains(T[] a, T key, Comparator<T> comparator, int high, int low){
     if(low <= high){
       int middlePosition = (high + low)/2;
