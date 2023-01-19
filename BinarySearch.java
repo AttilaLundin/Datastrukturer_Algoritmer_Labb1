@@ -9,7 +9,7 @@ public class BinarySearch {
 
   // Check if the array `a` contains the given search key.
   public static <T> boolean contains(T[] a, T key, Comparator<T> comparator) {
-    return binarySearchContains(a, key, comparator, a.length-1, 0) != -1;
+    return binarySearchContains(a, key, comparator, a.length-1, 0);
   }
 
   // Return the *first position* of `key` in `a`, or -1 if `key` does not occur.
@@ -17,15 +17,15 @@ public class BinarySearch {
     return binarySearchFirstIndexOf(a, key, comparator, a.length-1, 0, -1);
   }
 
-  private static <T> int binarySearchContains(T[] a, T key, Comparator<T> comparator, int high, int low){
+  private static <T> boolean binarySearchContains(T[] a, T key, Comparator<T> comparator, int high, int low){
     while(low <= high){
       int middlePosition = (high + low)/2;
       int indexOfKey = comparator.compare(a[middlePosition], key);
       if (indexOfKey < 0) low = middlePosition + 1;
       else if(indexOfKey > 0) high = middlePosition - 1;
-      else return middlePosition;
+      else return true;
     }
-    return -1;
+    return false;
   }
 
   //Function that recursively does a binary search on sorted array, returns -1 if element not present or the position of it.
